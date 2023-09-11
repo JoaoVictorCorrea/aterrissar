@@ -1,0 +1,72 @@
+.header {
+    height: 10vh;
+}
+
+.body {
+    height: 240vh;
+}
+
+.footer {
+    height: 10vh;
+}
+
+.logo {
+    background-color: cadetblue;
+}
+
+.menu {
+    background-color: red;
+}
+
+
+
+.imagem {
+    background-color: orange;
+}
+
+.rodape {
+    background-color: rgb(23, 45, 141);
+}
+.copyright {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 11vh 11vh 11vh 11vh 11vh 11vh 11vh 11vh 11vh; 
+    grid-gap: 20px;
+    padding: 20px; 
+}
+
+.m4 {
+    grid-row-start: 1; 
+    grid-column-start: 1; 
+}
+
+.m5 {
+    grid-row-start: 1;  
+    grid-column-start: 2; 
+}
+
+.m6 {
+
+    grid-row-start: 1;  
+    grid-column-start: 3; 
+}
+
+.m7 {
+    grid-row-start: 6; 
+    grid-column-start: 1;  
+}
+
+.m8 {
+    grid-row-start: 6;  
+    grid-column-start: 2; 
+}
+
+.m9 {
+
+    grid-row-start: 6;  
+    grid-column-start: 3; 
+}
