@@ -1,10 +1,11 @@
 function Search() {
+  const typo = 'https://i.imgur.com/d12inol.png';
+
   return(
     <div class="search">
       <section class="text-center py-5">
+        <img src={typo} alt="Typo" height='200'/>
         <h2 class="text-light">Procure o Destino dos Seus Sonhos</h2>
-        <br/>
-        <br/>
         <form action="#">
           <div class="container">
             <div class="row justify-content-center">

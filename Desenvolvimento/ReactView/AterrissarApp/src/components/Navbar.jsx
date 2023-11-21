@@ -1,24 +1,24 @@
-function Navbar() {
+function Navbar({admin}) {
+  const userImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN1UrvIGFDvsmN1YvavxG8q5nJCewYAa-tWQ&usqp=CAU";
+  const logo = 'https://i.imgur.com/d12inol.png';
+
   return(
-    <div class="container-fluid">
+    <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <i class="bi bi-three-dots"></i>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a class="navbar-brand mt-2 mt-lg-0" href="#">
-              <img class="rounded" src="assets/img/logo.png" height="30" alt="MDB Logo" loading="lazy" />
+              <a class="nav-link" href="#">Aterrissar</a>
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">Destinos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pacotes</a>
+                <a class="nav-link" href="/">Destinos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Quem Somos</a>
@@ -32,21 +32,28 @@ function Navbar() {
             </a>
 
             <div class="dropdown">
-              <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-                role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <img src="assets/img/user.png" class="rounded-circle" height="25" alt="Black and White Portrait of a Man"
+              <a class="dropdown-toggle d-inline-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src={userImg} class="rounded-circle" height="30" alt="User Image"
                   loading="lazy" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                 <li>
-                  <a class="dropdown-item" href="#">My profile</a>
+                  <a class="dropdown-item" href="#">Meu Perfil</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="#">Configurações</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="login">Logout</a>
                 </li>
+                { admin ?
+                  <li>
+                    <a class="dropdown-item" href="painel">Painel do Administrador</a>
+                  </li>
+                  :
+                  <a></a>
+                }
               </ul>
             </div>
           </div>
