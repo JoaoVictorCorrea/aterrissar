@@ -102,10 +102,10 @@ class Signup extends Component{
                         </div>
                         <div class="row m-1">
                           <label for="passConfirm" class="form-label">Confirmar Senha:</label>
-                          <input type="password" class="form-control mb-5" id="passConfirm" name="passConfirm"/>
+                          <input type="password" class="form-control mb-3" id="passConfirm" name="passConfirm"/>
                         </div>
-                        <button type="button" class="btn btn-primary m-1" onClick={this.addUser}><i class="bi bi-person-add"></i> Cadastrar</button>
-                        <button type="button" class="btn btn-secondary" onClick={this.changeCpfHandler.bind(this)}><i class="bi bi-trash-fill"></i> Limpar</button>
+                        <button type="button" class="btn btn-primary m-1 w-100" onClick={this.addUser}><i class="bi bi-person-add"></i> Cadastrar</button>
+                        <button type="button" class="btn btn-secondary m-1 w-100"><i class="bi bi-trash-fill"></i> Limpar</button>
                       </div>
                     </div>
               </form>

@@ -22,6 +22,7 @@ public class Voo {
 	private int qtdAssentosEconomica;
 	private int qtdAssentosPrimeiraClasse;
 	private int qtdAssentosExecutiva;
+	private String imgUrl;
 	
 	@ManyToOne
 	private Empresa empresa;
@@ -36,7 +37,7 @@ public class Voo {
 
 	public Voo(Long id, Date dataSaida, Date dataChegada, BigDecimal precoPassagem, int qtdAssentosEconomica,
 			int qtdAssentosPrimeiraClasse, int qtdAssentosExecutiva, Empresa empresa, Aeroporto destino,
-			Aeroporto partida) {
+			Aeroporto partida, String imgUrl) {
 		this.id = id;
 		this.dataSaida = dataSaida;
 		this.dataChegada = dataChegada;
@@ -47,6 +48,7 @@ public class Voo {
 		this.empresa = empresa;
 		this.destino = destino;
 		this.partida = partida;
+		this.imgUrl = imgUrl;
 	}
 	
 	public Long getId() {
@@ -127,6 +129,14 @@ public class Voo {
 
 	public void setPartida(Aeroporto partida) {
 		this.partida = partida;
+	}
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	@Override
