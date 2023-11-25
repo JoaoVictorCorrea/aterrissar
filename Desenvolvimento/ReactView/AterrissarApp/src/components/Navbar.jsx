@@ -1,0 +1,66 @@
+function Navbar({admin}) {
+  const userImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN1UrvIGFDvsmN1YvavxG8q5nJCewYAa-tWQ&usqp=CAU";
+  const logo = 'https://i.imgur.com/d12inol.png';
+
+  return(
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              <a class="nav-link" href="#">Aterrissar</a>
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Destinos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Quem Somos</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a class="text-reset me-3" href="#">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+
+            <div class="dropdown">
+              <a class="dropdown-toggle d-inline-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src={userImg} class="rounded-circle" height="30" alt="User Image"
+                  loading="lazy" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                <li>
+                  <a class="dropdown-item" href="#">Meu Perfil</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Configurações</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="login">Logout</a>
+                </li>
+                { admin ?
+                  <li>
+                    <a class="dropdown-item" href="painel">Painel do Administrador</a>
+                  </li>
+                  :
+                  <a></a>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  )
+}
+
+export default Navbar
