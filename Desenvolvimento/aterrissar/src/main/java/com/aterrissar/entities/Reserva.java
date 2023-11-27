@@ -23,18 +23,18 @@ public class Reserva {
 	private Voo viagem;
 	
 	@ManyToOne
-	private User usuario;
+	private User user;
 	
 	@OneToMany
 	private List<Passagem> passagens;
 	
 	public Reserva() {}
 
-	public Reserva(Long id, BigDecimal total, Voo viagem, User usuario, List<Passagem> passagens) {
+	public Reserva(Long id, BigDecimal total, Voo viagem, User user, List<Passagem> passagens) {
 		this.id = id;
 		this.total = total;
 		this.viagem = viagem;
-		this.usuario = usuario;
+		this.user = user;
 		this.passagens = passagens;
 	}
 
@@ -63,11 +63,11 @@ public class Reserva {
 	}
 
 	public User getUser() {
-		return usuario;
+		return user;
 	}
 
-	public void setUser(User usuario) {
-		this.usuario = usuario;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public List<Passagem> getPassagens() {
