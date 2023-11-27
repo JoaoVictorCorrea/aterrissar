@@ -3,12 +3,23 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import React, { Component } from "react"
 import VooService from "../services/VooService"
+import EmpresaService from "../services/EmpresaService"
 
 class AdminVoo extends Component{
+
+  componentDidMount(){
+    EmpresaService.getEmpresas().then((res) => {
+      this.setState({empresas: res.data});
+      console.log('Empresas => ' + JSON.stringify(empresas));
+    });
+  }
+
   constructor(props){
     super(props)
 
     this.state = {
+        empresas: [],
+
         dataSaida: '',
         dataChegada: '',
         precoPassagem: '',
@@ -156,6 +167,14 @@ class AdminVoo extends Component{
                         </div>
                         <div class="row mb-3 m-1">
                           <label for="empresa" class="form-label">Empresa:</label>
+                          <select>
+                            {
+                              empresas ? this.state.empresas.map((key) => {
+                                return <option>{key.nome}</option>;
+                              })
+                              : null
+                            }
+                          </select>
                           <input type="text" class="form-control" id="empresa" name="empresa" value={this.state.empresa} onChange={this.changeEmpresaHandler} maxlength="80" required/>
                         </div>
                         <div class="row mb-3 m-1">
