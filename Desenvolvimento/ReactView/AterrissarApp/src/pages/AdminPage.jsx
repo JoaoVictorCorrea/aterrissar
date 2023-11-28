@@ -9,11 +9,11 @@ function AdminPage(){
         <form class="form-signin" >       
           <h2 class="row1">Painel do Administrador</h2>
           <hr />
-          <button type="button" class="btn btn-light w-100" href='adminVoo'>Adicionar Voo</button>
+          <a type="button" class="btn btn-light w-100" href='adminVoo'>Adicionar Voo</a>
           <hr></hr>
-          <button type="button" class="btn btn-light w-100" href='#'>Gerenciar Empresas</button>
+          <a type="button" class="btn btn-light w-100" href='adminEmpresa'>Gerenciar Empresas</a>
           <hr></hr>
-          <button type="button" class="btn btn-light w-100" href='#'>Gerenciar Clientes</button>
+          <a type="button" class="btn btn-light w-100" href='#'>Gerenciar Clientes</a>
           <hr></hr>
         </form>
       </div>
