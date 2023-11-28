@@ -26,4 +26,11 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
+	public boolean authenticate(String email, String senha) {
+		
+		User user = userRepository.authenticate(email, senha);
+		
+		return(user != null ? true : false);
+	}
+	
 }
