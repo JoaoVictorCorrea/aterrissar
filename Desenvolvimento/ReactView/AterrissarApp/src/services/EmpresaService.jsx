@@ -5,8 +5,11 @@ const EMPRESAS_REST_API_URL = 'http://localhost:8080/empresa';
 class EmpresaService{
 
   getEmpresas(){
-    console.log("Testes");
     return axios.get(EMPRESAS_REST_API_URL);
+  }
+
+  getEmpresaById(id) {
+    return axios.get(EMPRESAS_REST_API_URL + '/' + id);
   }
 
   createEmpresa(empresa){
