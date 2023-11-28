@@ -32,14 +32,9 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 11vh 11vh 11vh 11vh 11vh 11vh 11vh 11vh 11vh; 
+  grid-template-rows: repeat(3, minmax(0, 1fr));
   grid-gap: 20px;
   padding: 20px; 
-}
-
-.m8 {
-  grid-row-start: 6;  
-  grid-column-start: 2; 
 }
 
 .search {
