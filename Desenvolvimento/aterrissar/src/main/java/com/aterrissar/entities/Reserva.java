@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Reserva {
@@ -24,9 +25,8 @@ public class Reserva {
 	@ManyToOne
 	private User user;
 	
-	/*
-	@ManyToOne
-	private List<Passagem> passagens;*/
+	@OneToMany(mappedBy = "reserva")
+	private List<Passagem> passagens;
 	
 	public Reserva() {}
 
