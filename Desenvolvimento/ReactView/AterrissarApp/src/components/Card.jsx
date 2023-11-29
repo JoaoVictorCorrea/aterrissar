@@ -1,8 +1,11 @@
 // Card.js
-import React from 'react';
+import React, { useState } from 'react';
 import Moment from 'moment/moment';
+import ModalCompra from './ModalCompra';
 
 const Card = ({ data }) => {
+  const [openModal, setOpenModal] = useState(false)
+
   return (
     <div >
       <div class="card rounded shadow">
@@ -14,7 +17,7 @@ const Card = ({ data }) => {
             <h2 class="card-title">{data.destino.cidade}</h2>
             <p class="card-text">Descrição do destino.</p>
             <p class="card-text"> A partir de<h5>R${data.precoPassagem.toFixed(2)}</h5></p>
-            <a href="#!" class="btn btn-primary">Acessar</a>
+            <ModalCompra data={data} />
         </div>
       </div>
     </div>

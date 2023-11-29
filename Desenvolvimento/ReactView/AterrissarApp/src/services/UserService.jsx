@@ -9,7 +9,11 @@ class UserService{
   }
 
   createUser(user){
-    return axios.post(USERS_REST_API_URL, user);
+    return axios.post(USERS_REST_API_URL + '/register/', user);
+  }
+
+  userLogin(credentials){
+    return axios.post(USERS_REST_API_URL + '/auth/login/' + credentials);
   }
 }
 
