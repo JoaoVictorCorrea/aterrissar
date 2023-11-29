@@ -29,6 +29,14 @@ public class Aeroporto {
 		this.pais = pais;
 		this.cidade = cidade;
 	}
+	
+	public Aeroporto(String nome, String sigla, String endereco, String pais, String cidade) {
+		this.nome = nome;
+		this.sigla = sigla;
+		this.endereco = endereco;
+		this.pais = pais;
+		this.cidade = cidade;
+	}
 
 	public Long getId() {
 		return id;
