@@ -3,6 +3,8 @@ package com.aterrissar.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +25,26 @@ public class UserService {
 	@Transactional
 	public User save(User user) {
 		
+		if(this.userRepository.findByEmail(user.getEmail()) != null)
+			return null;
+		
+		//encriptografando senha
+		String encryptedPassword = new BCryptPasswordEncoder().encode(user.getSenha());
+		
+		user.setSenha(encryptedPassword);
+		
 		return userRepository.save(user);
+	}
+	
+	public boolean authenticate(String email, String senha) {
+		
+		User user = userRepository.findByEmail(email);
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+		//Realiza o mathc das senhas
+		boolean match = passwordEncoder.matches(senha, user.getSenha());
+		
+		return(match ? true : false);
 	}
 	
 }
