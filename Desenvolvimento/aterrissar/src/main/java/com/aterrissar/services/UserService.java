@@ -36,7 +36,7 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
-	public boolean authenticate(String email, String senha) {
+	public User authenticate(String email, String senha) {
 		
 		User user = userRepository.findByEmail(email);
 		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -44,7 +44,7 @@ public class UserService {
 		//Realiza o mathc das senhas
 		boolean match = passwordEncoder.matches(senha, user.getSenha());
 		
-		return(match ? true : false);
+		return(match ? user : null);
 	}
 	
 }

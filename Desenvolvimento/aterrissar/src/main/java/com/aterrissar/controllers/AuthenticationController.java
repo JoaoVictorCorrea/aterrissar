@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aterrissar.dtos.UserAuthenticationDTO;
+import com.aterrissar.entities.User;
 import com.aterrissar.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:5173")
@@ -22,10 +23,10 @@ public class AuthenticationController {
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody UserAuthenticationDTO login) {
 		
-		boolean aunthenticated = userService.authenticate(login.getEmail(), login.getSenha());
+		User userAuthenticated = userService.authenticate(login.getEmail(), login.getSenha());
 		
-		if(aunthenticated)
-			return ResponseEntity.ok().body("Acesso Liberado!");
+		if(userAuthenticated != null)
+			return ResponseEntity.ok(userAuthenticated);
 		
 		return ResponseEntity.badRequest().body("Acesso Negado!");
 	}
