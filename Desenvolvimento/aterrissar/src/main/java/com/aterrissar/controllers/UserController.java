@@ -3,6 +3,7 @@ package com.aterrissar.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,9 +28,12 @@ public class UserController {
 		return userService.findAll();
 	}
 	
-	@PostMapping
-	public User save(@RequestBody User user) {
+	@PostMapping("/register")
+	public ResponseEntity<?> save(@RequestBody User user) {
 		
-		return userService.save(user);
+		User newUser =  userService.save(user);
+		
+		return(newUser != null ? ResponseEntity.ok().body("Cadastrado com Sucesso!") 
+				: ResponseEntity.badRequest().body("Erro ao Cadastrar!"));
 	}
 }
