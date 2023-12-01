@@ -1,5 +1,7 @@
 package com.aterrissar.security;
 
+import java.util.Collections;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -34,9 +36,11 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
         
         // Configurações CORS personalizadas, se necessário
-        configuration.addAllowedOrigin("*");
+        configuration.setAllowedOriginPatterns(Collections.singletonList("*")); // Use allowedOriginPatterns
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+        configuration.addExposedHeader("custom-header-name");
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
