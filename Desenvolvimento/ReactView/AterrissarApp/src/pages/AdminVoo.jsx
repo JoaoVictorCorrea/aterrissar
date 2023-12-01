@@ -99,10 +99,11 @@ class AdminVoo extends Component{
   };
 
   changeEmpresaHandler = (event) => {
-    EmpresaService.getEmpresaById(event.target.value)
+    const selectedEmpresaId = event.target.value;
+    EmpresaService.getEmpresaById(selectedEmpresaId)
     .then(response => {
-      this.setState({ empresa: response.data});
-      console.log("Empresa => " + JSON.stringify(this.state.empresa));
+      this.setState({ empresa: response.data });
+      console.log("Empresa => " + JSON.stringify(response.data));
     })
     .catch(error => {
       console.error('Erro ao buscar empresa por ID:', error);
@@ -110,10 +111,11 @@ class AdminVoo extends Component{
   };
 
   changeDestinoHandler = (event) => {
-    AeroportoService.getAeroportoById(event.target.value)
+    const selectedAeroportoId = event.target.value;
+    AeroportoService.getAeroportoById(selectedAeroportoId)
     .then(response => {
       this.setState({destino: response.data});
-      console.log("Destino => " + JSON.stringify(this.state.destino));
+      console.log("Destino => " + JSON.stringify(response.data));
     })
     .catch(error => {
       console.error('Erro ao buscar aeroporto por ID:', error);
@@ -121,10 +123,11 @@ class AdminVoo extends Component{
   };
 
   changePartidaHandler = (event) => {
-    AeroportoService.getAeroportoById(event.target.value)
+    const selectedAeroportoId = event.target.value;
+    AeroportoService.getAeroportoById(selectedAeroportoId)
     .then(response => {
       this.setState({partida: response.data});
-      console.log("Partida => " + JSON.stringify(this.state.partida));
+      console.log("Partida => " + JSON.stringify(response.data));
     })
     .catch(error => {
       console.error('Erro ao buscar aeroporto por ID:', error);
@@ -146,10 +149,10 @@ class AdminVoo extends Component{
                       <div class="col shadow-lg border rounded m-3 p-3">
                         <div class="row mb-2 p-3">
                           <label for="partida" class="form-label">Partida:</label>
-                          <select class="form-select" value={this.state.partida} onChange={this.changePartidaHandler}>
+                          <select class="form-select" onChange={this.changePartidaHandler}>
                             { 
                               this.state.aeroportos.map((key) => {
-                                return <option key={key.id} value={key.id}>{key.nome}</option>;
+                                return <option key={key.id} value={key.id}>{key.cidade}</option>;
                               })
                             }
                           </select>
@@ -160,10 +163,10 @@ class AdminVoo extends Component{
                         </div>
                         <div class="row mb-2 p-3">
                             <label for="destino" class="form-label">Destino:</label>
-                            <select class="form-select" value={this.state.destino} onChange={this.changeDestinoHandler}>
+                            <select class="form-select" onChange={this.changeDestinoHandler}>
                             { 
                               this.state.aeroportos.map((key) => {
-                                return <option key={key.id} value={key.id}>{key.nome}</option>;
+                                return <option key={key.id} value={key.id}>{key.cidade}</option>;
                               })
                             }
                           </select>
@@ -208,7 +211,7 @@ class AdminVoo extends Component{
                         </div>
                         <div class="row mb-2 p-3">
                           <label for="empresa" class="form-label">Empresa:</label>
-                          <select class="form-select" value={this.state.empresa} onChange={this.changeEmpresaHandler}>
+                          <select class="form-select" onChange={this.changeEmpresaHandler}>
                             { 
                               this.state.empresas.map((key) => {
                                 return <option key={key.id} value={key.id}>{key.nome}</option>;

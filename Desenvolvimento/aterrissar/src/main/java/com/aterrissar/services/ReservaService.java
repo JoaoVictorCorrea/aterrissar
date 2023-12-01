@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aterrissar.entities.Passagem;
 import com.aterrissar.entities.Reserva;
 import com.aterrissar.repositories.ReservaRepository;
 
@@ -15,6 +16,9 @@ public class ReservaService {
 	@Autowired
 	private ReservaRepository reservaRepository;
 	
+	@Autowired
+	private PassagemService passagemService;
+	
 	public List<Reserva> findAll(){
 		
 		return reservaRepository.findAll();
@@ -23,6 +27,14 @@ public class ReservaService {
 	@Transactional
 	public Reserva save(Reserva reserva) {
 		
-		return reservaRepository.save(reserva);
+		Reserva reservaSaved = reservaRepository.save(reserva);
+		
+		for(Passagem passagem : reservaSaved.getPassagens()) {
+			
+			passagem.setReserva(reservaSaved);
+			passagem = passagemService.save(passagem);
+		}
+		
+		return reservaSaved;
 	}
 }
