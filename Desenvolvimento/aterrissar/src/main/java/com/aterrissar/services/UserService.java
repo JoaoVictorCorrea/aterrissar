@@ -1,6 +1,7 @@
 package com.aterrissar.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +21,11 @@ public class UserService {
 	public List<User> findAll(){
 		
 		return userRepository.findAll();
+	}
+	
+	public Optional<User> findById(Long id){
+		
+		return userRepository.findById(id);
 	}
 	
 	@Transactional

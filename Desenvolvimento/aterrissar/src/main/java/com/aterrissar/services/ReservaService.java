@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.aterrissar.entities.Passagem;
 import com.aterrissar.entities.Reserva;
+import com.aterrissar.entities.User;
 import com.aterrissar.repositories.ReservaRepository;
 
 @Service
@@ -22,6 +23,11 @@ public class ReservaService {
 	public List<Reserva> findAll(){
 		
 		return reservaRepository.findAll();
+	}
+	
+	public List<Reserva> findByUser(User user){
+		
+		return reservaRepository.findByUser(user);
 	}
 	
 	@Transactional
