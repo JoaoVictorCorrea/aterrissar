@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 import com.aterrissar.entities.enums.TipoPassagem;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,6 +32,7 @@ public class Passagem {
 	private TipoPassagem tipoPassagem;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Reserva reserva;
 	
 	public Passagem() {}

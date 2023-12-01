@@ -35,7 +35,7 @@ public class Reserva {
 		this.total = total;
 		this.viagem = viagem;
 		this.user = user;
-		//this.passagens = passagens;
+		this.passagens = passagens;
 	}
 
 	public Long getId() {
@@ -70,7 +70,7 @@ public class Reserva {
 		this.user = user;
 	}
 
-	/*
+	
 	public List<Passagem> getPassagens() {
 		return passagens;
 	}
@@ -78,7 +78,7 @@ public class Reserva {
 	public void setPassagens(List<Passagem> passagens) {
 		this.passagens = passagens;
 	}
-	 */
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const USERS_REST_API_URL = 'http://localhost:8080/user';
 
+const LOGIN_API_URL = 'http://localhost:8080/auth';
+
 class UserService{
 
   getUsers(){
@@ -9,11 +11,11 @@ class UserService{
   }
 
   createUser(user){
-    return axios.post(USERS_REST_API_URL + '/register/', user);
+    return axios.post(USERS_REST_API_URL + '/register', user);
   }
 
   userLogin(credentials){
-    return axios.post(USERS_REST_API_URL + '/auth/login/' + credentials);
+    return axios.post(LOGIN_API_URL + '/login' + credentials);
   }
 }
 
