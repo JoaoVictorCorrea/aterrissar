@@ -25,13 +25,13 @@ class Home extends Component{
 
   render() {
     return (
-      <div>
+      <div class="login">
         <Navbar admin={true}/>
         <Search />
-        <section class="search-section text-center py-5 whitebg">
-          <h2 class="text-dark">Destinos em destaque</h2>
+        <section class="search-section text-center py-5">
+          <h1 class="text-light">Destinos em destaque</h1>
         </section>
-        <div class="grid-container whitebg">
+        <div class="grid-container">
         {this.state.voos.map((key, id) => (
             <Card data={key} key={id} />
           ))}

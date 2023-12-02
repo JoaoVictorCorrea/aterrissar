@@ -15,7 +15,7 @@ class UserService{
   }
 
   userLogin(credentials){
-    return axios.post(LOGIN_API_URL + '/login' + credentials);
+    return axios.post(LOGIN_API_URL + '/login', credentials);
   }
 }
 

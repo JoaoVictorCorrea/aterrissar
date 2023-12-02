@@ -2,6 +2,10 @@ function Navbar({admin}) {
   const userImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN1UrvIGFDvsmN1YvavxG8q5nJCewYAa-tWQ&usqp=CAU";
   const logo = 'https://i.imgur.com/d12inol.png';
 
+  const storedUser = localStorage.getItem('user');
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  console.log("user => " + user);
+
   return(
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,21 +37,21 @@ function Navbar({admin}) {
 
             <div class="dropdown">
               <a class="dropdown-toggle d-inline-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
                 <img src={userImg} class="rounded-circle" height="30" alt="User Image"
                   loading="lazy" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                 <li>
-                  <a class="dropdown-item" href="#">Meu Perfil</a>
+                  <a class="dropdown-item" href="profile">{user.nome}</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">Configurações</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="login">Logout</a>
+                  <a class="dropdown-item text-danger" href="login">Logout</a>
                 </li>
-                { admin ?
+                { user.admin == 1 ?
                   <li>
                     <a class="dropdown-item" href="painel">Painel do Administrador</a>
                   </li>

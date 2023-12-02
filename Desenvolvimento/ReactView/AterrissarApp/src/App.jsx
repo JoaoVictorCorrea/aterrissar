@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import AdminPage from './pages/AdminPage';
 import AdminVoo from './pages/AdminVoo';
 import AdminEmpresa from './pages/AdminEmpresa'
+import Profile from './pages/Profile';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,8 @@ function App() {
           <Route path='/signup' element={<Signup/>} />
           <Route path='/painel' element={<AdminPage/>} /> 
           <Route path='/adminVoo' element={<AdminVoo/>} /> 
-          <Route path='/adminEmpresa' element={<AdminEmpresa/>} /> 
+          <Route path='/adminEmpresa' element={<AdminEmpresa/>} />
+          <Route path='/profile' element={<Profile/>} /> 
         </Routes>
       </BrowserRouter>
     </div>
