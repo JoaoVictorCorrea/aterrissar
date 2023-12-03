@@ -38,7 +38,7 @@ function MyVerticallyCenteredModal(props) {
   const [assento, setAssento] = useState('');
   const [nomePassageiro, setNomePassageiro] = useState('');
   const [cpfPassageiro, setCpfPassageiro] = useState('');
-  const [tipoPassagem, setTipoPassagem] = useState('Economica');
+  const [tipoPassagem, setTipoPassagem] = useState('ECONOMICA');
   const [qtdeBagagem, setQtdeBagagem] = useState(0);
   const [precoTotal, setPrecoTotal] = useState(0);
 
@@ -50,7 +50,6 @@ function MyVerticallyCenteredModal(props) {
 
 
   const comprarPassagem = () => {
-    setPrecoTotal(data.precoPassagem * (1 + (qtdeBagagem / 10)))
     setTotal(total + precoTotal);
 
     const passagem = new Passagem(
@@ -79,12 +78,24 @@ function MyVerticallyCenteredModal(props) {
     ReservaService.createReserva(reserva);
 
     setPassagens([])
+    setTotal(0);
     setTexto("Reserva efetuada com sucesso!")
   }
 
   const paraMin = () => {
     setNomePassageiro(user.nome);
     setCpfPassageiro(user.cpf);
+  }
+
+  const atualizarValor = (e) => {
+    setTipoPassagem(e.target.value);
+    if(e.target.value == "ECONOMICA"){
+      setPrecoTotal(data.precoPassagem * (1 + (qtdeBagagem / 10)));
+    }else if (e.target.value == "EXECUTIVA"){
+      setPrecoTotal((data.precoPassagem * (1 + (qtdeBagagem / 10))) * 1.5);
+    }else if (e.target.value == "PRIMEIRA_CLASSE"){
+      setPrecoTotal((data.precoPassagem * (1 + (qtdeBagagem / 10))) * 2);
+    }
   }
 
   return (
@@ -104,7 +115,9 @@ function MyVerticallyCenteredModal(props) {
               <div class="row ">
                 <div class='col'>
                 <div class="row p-3">
-                  <h3 class="text-primary"> Passagens a partir de R${data.precoPassagem.toFixed(2)} </h3>              
+                  <h5 class="card-title mb-1">{data.destino.pais}</h5>
+                  <h2 class="card-title mb-2">{data.destino.cidade}</h2>
+                  <h3 class="text-primary"> Passagens a partir de R${data.precoPassagem} </h3>              
                 </div>
                 <div class="row ml-2 p-3 ">
                   <h5><i class="bi bi-calendar2-week"></i> Voe de {Moment(data.dataSaida).format('DD/MM/YY')} a {Moment(data.dataChegada).format('DD/MM/YY')} </h5>
@@ -126,7 +139,7 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                   <div class="row m-2 mb-3">
                     <label for="tipo" class="form-label">Tipo da Passagem:</label>
-                    <select class="form-control" value={tipoPassagem} onChange={(e) => setTipoPassagem(e.target.value)} > 
+                    <select class="form-control" value={tipoPassagem} onChange={atualizarValor} > 
                         <option value="ECONOMICA">Economica</option>
                         <option value="EXECUTIVA">Executiva</option>
                         <option value="PRIMEIRA_CLASSE">Primeira Classe</option>
@@ -142,7 +155,7 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                   <div class="row m-2 pb-3">
                       <div class="d-flex flex-row-reverse">
-                        <h5 class="p-2">Valor da Passagem: R${valorPassagem.toFixed(2)}</h5>
+                        <h5 class="p-2">Valor da Passagem: R${precoTotal}</h5>
                       </div>
                     <button type="button" class="btn btn-primary m-1 w-100" onClick={comprarPassagem} ><i class="bi bi-arrow-right"></i> Comprar Passagem </button>
                     <button type="button" class="btn btn-secondary m-1 w-100"><i class="bi bi-trash-fill"></i> Limpar</button>

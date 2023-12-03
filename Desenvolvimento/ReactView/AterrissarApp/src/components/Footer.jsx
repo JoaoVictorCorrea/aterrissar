@@ -58,7 +58,7 @@ function Footer(){
           </div>
         </section>
 
-        <div class="text-center p-4 copyright">
+        <div class="text-center p-4 copyright text-light">
           © 2023 Copyright:
           <a class="text-reset fw-bold" href="https://aterrissar.com/">aterrissar.com</a>
         </div>

@@ -9,6 +9,7 @@ import AdminPage from './pages/AdminPage';
 import AdminVoo from './pages/AdminVoo';
 import AdminEmpresa from './pages/AdminEmpresa'
 import Profile from './pages/Profile';
+import Reservas from './pages/Reservas';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
           <Route path='/adminVoo' element={<AdminVoo/>} /> 
           <Route path='/adminEmpresa' element={<AdminEmpresa/>} />
           <Route path='/profile' element={<Profile/>} /> 
+          <Route path='/reservas' element={<Reservas/>} />
         </Routes>
       </BrowserRouter>
     </div>

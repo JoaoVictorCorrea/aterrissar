@@ -29,7 +29,7 @@ class Home extends Component{
         <Navbar admin={true}/>
         <Search />
         <section class="search-section text-center py-5">
-          <h1 class="text-light">Destinos em destaque</h1>
+          <h1 class="text-light shadow-lg">Destinos em destaque</h1>
         </section>
         <div class="grid-container">
         {this.state.voos.map((key, id) => (

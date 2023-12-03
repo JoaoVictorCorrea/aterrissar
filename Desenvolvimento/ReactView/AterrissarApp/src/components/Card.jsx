@@ -8,7 +8,7 @@ const Card = ({ data }) => {
 
   return (
     <div >
-      <div class="card rounded shadow">
+      <div class="card rounded shadow-lg">
         <img src={data.imgUrl} class="card-img-top" alt="" style={{"height" : "200px"}}/>
         <div class="card-body">
             <p class="card-text"> Voe de {Moment(data.dataSaida).format('DD/MM/YY')} a {Moment(data.dataChegada).format('DD/MM/YY')}</p>

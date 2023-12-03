@@ -8,7 +8,7 @@ function Navbar({admin}) {
 
   return(
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -31,8 +31,9 @@ function Navbar({admin}) {
           </div>
 
           <div class="d-flex align-items-center">
+            <a class="nav-link text-success m-3" href="reservas">Minhas reservas </a>
             <a class="text-reset me-3" href="#">
-              <i class="fas fa-shopping-cart"></i>
+              <i class="bi bi-bag"></i>
             </a>
 
             <div class="dropdown">

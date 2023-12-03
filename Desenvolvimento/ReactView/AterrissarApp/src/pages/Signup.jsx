@@ -3,6 +3,8 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import React, { Component } from "react"
 import UserService from "../services/UserService"
+import { useNavigate } from 'react-router-dom';
+
 
 class Signup extends Component{
   constructor(props){
@@ -13,6 +15,7 @@ class Signup extends Component{
         cpf: '',
         dataNasc: '',
         telefone: '',
+        
         email:'',
         senha:'',
     }
@@ -33,7 +36,7 @@ class Signup extends Component{
     console.log('user => ' + JSON.stringify(user));
 
     UserService.createUser(user).then(res => {
-      this.props.history.push('/signup');
+      useNavigate('login');
     });
   }
 
@@ -59,10 +62,6 @@ class Signup extends Component{
 
   changeSenhaHandler= (event) => {
     this.setState({senha: event.target.value});
-  }
-
-  cancel(){
-    
   }
 
   render() {

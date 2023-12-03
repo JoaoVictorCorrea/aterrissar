@@ -18,6 +18,25 @@ class AdminVoo extends Component{
       this.setState({ aeroportos: res.data });
       console.log('Aeroportos => ' + JSON.stringify(this.state.aeroportos));
     });
+
+    EmpresaService.getEmpresaById(1)
+    .then(response => {
+      this.setState({ empresa: response.data });
+      console.log("Empresa => " + JSON.stringify(response.data));
+    })
+    .catch(error => {
+      console.error('Erro ao buscar empresa por ID:', error);
+    });
+
+    AeroportoService.getAeroportoById(1)
+    .then(response => {
+      this.setState({destino: response.data});
+      this.setState({partida: response.data});
+      console.log("Destino => " + JSON.stringify(response.data));
+    })
+    .catch(error => {
+      console.error('Erro ao buscar aeroporto por ID:', error);
+    });
   }
 
   constructor(props){
@@ -54,6 +73,7 @@ class AdminVoo extends Component{
   }
 
   addVoo = (e) => {
+
     const novoVoo = {
       dataSaida: this.state.dataSaida,
       dataChegada: this.state.dataChegada,
