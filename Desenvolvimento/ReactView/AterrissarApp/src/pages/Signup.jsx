@@ -3,6 +3,8 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import React, { Component } from "react"
 import UserService from "../services/UserService"
+import { useNavigate } from 'react-router-dom';
+
 
 class Signup extends Component{
   constructor(props){
@@ -13,6 +15,7 @@ class Signup extends Component{
         cpf: '',
         dataNasc: '',
         telefone: '',
+        
         email:'',
         senha:'',
     }
@@ -33,7 +36,7 @@ class Signup extends Component{
     console.log('user => ' + JSON.stringify(user));
 
     UserService.createUser(user).then(res => {
-      this.props.history.push('/signup');
+      this.clear();
     });
   }
 
@@ -61,8 +64,13 @@ class Signup extends Component{
     this.setState({senha: event.target.value});
   }
 
-  cancel(){
-    
+  clear = (event) => {
+    this.setState({nome: ""});
+    this.setState({ cpf: "" });
+    this.setState({ dataNasc: ""});
+    this.setState({ telefone: ""});
+    this.setState({ email: ""});
+    this.setState({ senha: ""});
   }
 
   render() {
@@ -105,7 +113,7 @@ class Signup extends Component{
                           <input type="password" class="form-control mb-3" id="passConfirm" name="passConfirm"/>
                         </div>
                         <button type="button" class="btn btn-primary m-1 w-100" onClick={this.addUser}><i class="bi bi-person-add"></i> Cadastrar</button>
-                        <button type="button" class="btn btn-secondary m-1 w-100"><i class="bi bi-trash-fill"></i> Limpar</button>
+                        <button type="button" class="btn btn-secondary m-1 w-100" onClick={this.clear}><i class="bi bi-trash-fill"></i> Limpar</button>
                       </div>
                     </div>
               </form>

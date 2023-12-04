@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 function AdminPage(){
   return (
-    <div class="login">
+    <div class="login"><br /><br />
     <Navbar />
       <div class="container">
         <form class="form-signin" >       

@@ -1,6 +1,6 @@
 package com.aterrissar.entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -23,6 +23,17 @@ public class User {
 	private boolean admin;
 	
 	public User() {}
+	
+	public User(String nome, String cpf, Date dataNasc, String telefone, 
+			String email, String senha, boolean admin) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataNasc = dataNasc;
+		this.telefone = telefone;
+		this.email = email;
+		this.senha = senha;
+		this.admin = admin;
+	}
 	
 	public User(Long id, String nome, String cpf, Date dataNasc, String telefone, 
 			String email, String senha, boolean admin) {

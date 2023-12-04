@@ -2,7 +2,7 @@ function Search() {
   const typo = 'https://i.imgur.com/d12inol.png';
 
   return(
-    <div class="search">
+    <div class="search shadow-lg">
       <section class="text-center py-5">
         <img src={typo} alt="Typo" height='200'/>
         <h2 class="text-light">Procure o Destino dos Seus Sonhos</h2>

@@ -8,6 +8,8 @@ import Signup from './pages/Signup';
 import AdminPage from './pages/AdminPage';
 import AdminVoo from './pages/AdminVoo';
 import AdminEmpresa from './pages/AdminEmpresa'
+import Profile from './pages/Profile';
+import Reservas from './pages/Reservas';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,12 +18,15 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/home" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/painel' element={<AdminPage/>} /> 
           <Route path='/adminVoo' element={<AdminVoo/>} /> 
-          <Route path='/adminEmpresa' element={<AdminEmpresa/>} /> 
+          <Route path='/adminEmpresa' element={<AdminEmpresa/>} />
+          <Route path='/profile' element={<Profile/>} /> 
+          <Route path='/reservas' element={<Reservas/>} />
         </Routes>
       </BrowserRouter>
     </div>

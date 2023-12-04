@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,8 @@ public class Voo {
 	private int qtdAssentosEconomica;
 	private int qtdAssentosPrimeiraClasse;
 	private int qtdAssentosExecutiva;
+	
+	@Column(length = 512000,columnDefinition="Text")
 	private String imgUrl;
 	
 	@ManyToOne

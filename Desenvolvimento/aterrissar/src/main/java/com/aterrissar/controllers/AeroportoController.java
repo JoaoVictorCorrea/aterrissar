@@ -1,9 +1,7 @@
 package com.aterrissar.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,20 +22,23 @@ public class AeroportoController {
 	private AeroportoService aeroportoService;
 	
 	@GetMapping
-	public List<Aeroporto> findAll(){
+	public ResponseEntity<?> findAll(){
 		
-		return aeroportoService.findAll();
+		return ResponseEntity.ok(aeroportoService.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Aeroporto> findById(@PathVariable Long id){
+	public ResponseEntity<?> findById(@PathVariable Long id){
 		
-		return aeroportoService.findById(id);
+		Aeroporto aeroporto = aeroportoService.findById(id).get();
+		
+		return(aeroporto != null ? ResponseEntity.ok(aeroporto) 
+				: ResponseEntity.badRequest().body("Aeroporto não encontrado!"));
 	}
 	
 	@PostMapping
-	public Aeroporto save(@RequestBody Aeroporto aeroporto) {
+	public ResponseEntity<?> save(@RequestBody Aeroporto aeroporto) {
 		
-		return aeroportoService.save(aeroporto);
+		return ResponseEntity.ok(aeroportoService.save(aeroporto));
 	}
 }
