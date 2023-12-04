@@ -30,9 +30,21 @@ public class DataLoader implements CommandLineRunner {
             
             Aeroporto aeroporto1 = new Aeroporto("Aeroporto Internacional de Guarulhos", "GRU", "Rod. Hélio Smidt, s/nº - Aeroporto, Guarulhos - SP, 07190-100", "Brasil", "São Paulo");
             Aeroporto aeroporto2 = new Aeroporto("Aeroporto Santos Dumont", "SDU", "Praça Sen. Salgado Filho, s/n - Centro, Rio de Janeiro - RJ, 20021-340", "Brasil", "Rio de Janeiro");
-
+            Aeroporto aeroporto3 = new Aeroporto("Aeroporto Internacional de Belo Horizonte", "CNF", "LMG-800, 76 - Rodoviario, Confins - MG, 33500-000", "Brasil", "Minas Gerais");
+            Aeroporto aeroporto4 = new Aeroporto("Aeroporto Internacional de Natal", "NAT", "Av. Dr. Ruy Pereira dos Santos, 3100 - Aeroporto, São Gonçalo do Amarante - RN, 59290-000", "Brasil", "Rio Grande do Norte");
+            Aeroporto aeroporto5 = new Aeroporto("Aeroporto Internacional de Florianópolis", "FLN", "Rod. Ac. ao Aeroporto, 6.200 - Carianos, Florianópolis - SC, 88047-902", "Brasil", "Santa Catarina");
+            Aeroporto aeroporto6 = new Aeroporto("Aeroporto Internacional de Goiânia", "GYN", "Alameda 4, s/n - Santa Genoveva, Goiânia - GO", "Brasil", "Goiás");
+            Aeroporto aeroporto7 = new Aeroporto("Aeroporto Internacional de Manaus", "MAO", "Av. Santos Dumont, 1350 - Tarumã, Manaus - AM, 69041-000", "Brasil", "Amazonas");
+            Aeroporto aeroporto8 = new Aeroporto("Aeroporto Internacional do Recife", "REC", "Praça Min. Salgado Filho, s/n - Imbiribeira, Recife - PE, 51210-902", "Brasil", "Pernambuco");
+            
             aeroportoRepository.save(aeroporto1);
             aeroportoRepository.save(aeroporto2);
+            aeroportoRepository.save(aeroporto3);
+            aeroportoRepository.save(aeroporto4);
+            aeroportoRepository.save(aeroporto5);
+            aeroportoRepository.save(aeroporto6);
+            aeroportoRepository.save(aeroporto7);
+            aeroportoRepository.save(aeroporto8);
         }
         
         if(userRepository.count() == 0) {
