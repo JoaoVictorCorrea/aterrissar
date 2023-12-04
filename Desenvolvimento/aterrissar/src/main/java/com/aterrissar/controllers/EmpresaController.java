@@ -1,9 +1,7 @@
 package com.aterrissar.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,20 +22,23 @@ public class EmpresaController {
 	private EmpresaService empresaService;
 	
 	@GetMapping
-	public List<Empresa> findAll(){
+	public ResponseEntity<?> findAll(){
 		
-		return empresaService.findAll();
+		return ResponseEntity.ok(empresaService.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Empresa> findById(@PathVariable Long id){
+	public ResponseEntity<?> findById(@PathVariable Long id){
 		
-		return empresaService.findById(id);
+		Empresa empresa = empresaService.findById(id).get();
+		
+		return(empresa != null ? ResponseEntity.ok(empresa) 
+				: ResponseEntity.badRequest().body("Empresa não encontrada!"));
 	}
 	
 	@PostMapping
-	public Empresa save(@RequestBody Empresa empresa) {
+	public ResponseEntity<?> save(@RequestBody Empresa empresa) {
 		
-		return empresaService.save(empresa);
+		return ResponseEntity.ok(empresaService.save(empresa));
 	}
 }

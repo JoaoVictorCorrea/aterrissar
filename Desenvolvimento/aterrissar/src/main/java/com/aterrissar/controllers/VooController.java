@@ -1,8 +1,7 @@
 package com.aterrissar.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,14 +21,14 @@ public class VooController {
 	private VooService vooService;
 	
 	@GetMapping
-	public List<Voo> findAll(){
+	public ResponseEntity<?> findAll(){
 		
-		return vooService.findAll();
+		return ResponseEntity.ok(vooService.findAll());
 	}
 	
 	@PostMapping
-	public Voo save(@RequestBody Voo voo) {
+	public ResponseEntity<?> save(@RequestBody Voo voo) {
 		
-		return vooService.save(voo);
+		return ResponseEntity.ok(vooService.save(voo));
 	}
 }

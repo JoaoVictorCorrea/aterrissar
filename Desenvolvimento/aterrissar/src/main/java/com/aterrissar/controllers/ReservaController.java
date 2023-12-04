@@ -1,6 +1,5 @@
 package com.aterrissar.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +29,9 @@ public class ReservaController {
 	private UserService userService;
 	
 	@GetMapping
-	public List<Reserva> findAll(){
+	public ResponseEntity<?> findAll(){
 		
-		return reservaService.findAll();
+		return ResponseEntity.ok(reservaService.findAll());
 	}
 	
 	@PostMapping
