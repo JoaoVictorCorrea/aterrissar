@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 import Footer from "../components/Footer"
-import Header from "../components/Header"
+import Navbar from "../components/Navbar"
 import React, { Component } from "react"
 import EmpresaService from "../services/EmpresaService"
 
@@ -43,7 +43,7 @@ class AdminEmpresa extends Component{
   render() {
     return (
         <div class="login">
-        <Header />
+        <Navbar /><br /><br />
          <div class="container">
                 <form class="form-signin"  id="formulario" action="#" method="post">       
                   <h2 class="row1">Adicionar Empresa</h2>

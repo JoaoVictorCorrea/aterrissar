@@ -1,10 +1,14 @@
 import { render } from "react-dom"
 import Footer from "../components/Footer"
-import Header from "../components/Header"
+import Navbar from "../components/Navbar"
 import React, { Component } from "react"
 import VooService from "../services/VooService"
 import EmpresaService from "../services/EmpresaService"
 import AeroportoService from "../services/AeroportoService"
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DateTimePicker } from "@mui/x-date-pickers"
+
 
 class AdminVoo extends Component{
 
@@ -90,7 +94,7 @@ class AdminVoo extends Component{
     console.log('voo => ' + JSON.stringify(novoVoo));
 
     VooService.createVoo(novoVoo).then(res => {
-      
+      this.clear();
     });
   };
 
@@ -158,10 +162,24 @@ class AdminVoo extends Component{
     this.setState({ imgUrl: event.target.value });
   };
 
+  clear = (e) => {
+    this.setState({ dataSaida:"" });
+    this.setState({ dataPartida:"" });
+    this.setState({ qtdAssentosEconomica:"" });
+    this.setState({ qtdAssentosPrimeiraClasse:"" });
+    this.setState({ qtdAssentosExecutiva:"" });
+    this.setState({ destino: ""})
+    this.setState({ partida: ""})
+    this.setState({ imgUrl: ""})
+    this.setState({ empresa: ""})
+    this.setState({ precoPassagem: ""})
+  }
+
   render() {
     return (
         <div class="login">
-          <Header />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <Navbar /><br /><br />
           <div class="container">
                   <form class="form-cadvoo">       
                     <h2 class="row1">Adicionar Viagem</h2>
@@ -179,7 +197,7 @@ class AdminVoo extends Component{
                         </div>
                         <div class="row mb-2 p-3">
                           <label for="dataSaida" class="form-label">Data de Saída:</label>
-                          <input type="date" class="form-control mb-3" id="dataSaida"  name="dataSaida" value={this.state.dataSaida} onChange={this.changeDataSaidaHandler}/>
+                          <DateTimePicker value={this.state.dataSaida} onChange={(newValue) => this.setState({dataSaida: newValue})}/>
                         </div>
                         <div class="row mb-2 p-3">
                             <label for="destino" class="form-label">Destino:</label>
@@ -193,7 +211,7 @@ class AdminVoo extends Component{
                         </div>
                         <div class="row mb-2 p-3">
                           <label for="dataChegada" class="form-label">Data de Chegada:</label>
-                          <input type="date" class="form-control mb-3" id="dataChegada"  name="dataChegada" value={this.state.dataChegada} onChange={this.changeDataChegadaHandler}/>
+                          <DateTimePicker value={this.state.dataChegada} onChange={(newValue) => this.setState({dataChegada: newValue})}/>
                         </div>
                         <hr />
                         <h5 class="row1">Quantidade de Assentos: </h5>
@@ -245,11 +263,12 @@ class AdminVoo extends Component{
                         </div>
                         <hr />
                         <button type="button" class="btn btn-primary m-1 w-100" onClick={this.addVoo}><i class="bi bi-airplane"></i> Cadastrar</button>
-                        <button type="button" class="btn btn-secondary m-1 w-100"><i class="bi bi-trash-fill"></i> Limpar</button>
+                        <button type="button" class="btn btn-secondary m-1 w-100" onClick={this.clear}><i class="bi bi-trash-fill"></i> Limpar</button>
                       </div>                      
                     </div>
               </form>
           </div>
+          </LocalizationProvider>
         <Footer />
       </div>
     )

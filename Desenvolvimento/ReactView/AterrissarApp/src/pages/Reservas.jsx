@@ -33,13 +33,25 @@ class Reservas extends Component{
                   <form class="form-reservas ">       
                     <h2 class="row1">Minhas Reservas</h2>
                     <div class="row">
-                    { this.state.reservas ? this.state.reservas.map((key) => {
-                    return <div class="card shadow-lg mb-2">
+                    { this.state.reservas ? this.state.reservas.map((reserva) => {
+                    return <div class="card shadow-lg mb-2 bg-light"> 
                      <div class="card-body">
-                      <h4>Reserva para {key.viagem.destino.cidade}, {key.viagem.destino.pais}</h4>
-                      <h5><i class="bi bi-calendar2-week"></i> Voe de {Moment(key.viagem.dataSaida).format('DD/MM/YY')} a {Moment(key.viagem.dataChegada).format('DD/MM/YY')} </h5>
+                      <h4>Reserva para {reserva.viagem.destino.cidade}, {reserva.viagem.destino.pais}</h4>
+                      <h5><i class="bi bi-calendar2-week"></i> Voe de {Moment(reserva.viagem.dataSaida).format('DD/MM/YY hh:mm')} a {Moment(reserva.viagem.dataChegada).format('DD/MM/YY hh:mm')} </h5>
+                      {reserva.passagens.map((passagem, index) => (
+                        <div key={index} class="card mb-3 shadow-lg p-2">
+                          <div class="row">
+                            <h5>Passageiro: {passagem.nomePassageiro}</h5>
+                            <h6>CPF: {passagem.cpfPassageiro}</h6>
+                            <p>Assento: {passagem.assento} {passagem.tipoPassagem}</p>
+                            <div class="d-flex flex-row-reverse">
+                              <h6 class="p-2">Valor da Passagem: R${passagem.precoTotal}</h6>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     <div class="d-flex flex-row-reverse">
-                      <h6 class="p-2">Valor Total da Reserva: R${key.total}</h6>
+                      <h5 class="p-2">Valor Total da Reserva: R${reserva.total}</h5>
                     </div>
                   </div>
                 </div>

@@ -22,7 +22,7 @@ function Navbar({admin}) {
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/">Destinos</a>
+                <a class="nav-link" href="home">Destinos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Quem Somos</a>

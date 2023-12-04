@@ -16,7 +16,7 @@ const Card = ({ data }) => {
             <h5 class="card-title">{data.destino.pais}</h5>
             <h2 class="card-title">{data.destino.cidade}</h2>
             <p class="card-text">Descrição do destino.</p>
-            <p class="card-text"> A partir de<h5>R${data.precoPassagem.toFixed(2)}</h5></p>
+            <p class="card-text"> A partir de<h5>R${data.precoPassagem}</h5></p>
             <ModalCompra data={data} />
         </div>
       </div>

@@ -120,7 +120,7 @@ function MyVerticallyCenteredModal(props) {
                   <h3 class="text-primary"> Passagens a partir de R${data.precoPassagem} </h3>              
                 </div>
                 <div class="row ml-2 p-3 ">
-                  <h5><i class="bi bi-calendar2-week"></i> Voe de {Moment(data.dataSaida).format('DD/MM/YY')} a {Moment(data.dataChegada).format('DD/MM/YY')} </h5>
+                  <h5><i class="bi bi-calendar2-week"></i> Voe de {Moment(data.dataSaida).format('DD/MM/YY hh:mm')} a {Moment(data.dataChegada).format('DD/MM/YY hh:mm')} </h5>
                 </div>
                 <div class="bg-light rounded">
                   <div class="row m-1 p-3 ">
@@ -189,9 +189,6 @@ function MyVerticallyCenteredModal(props) {
             </div>
           </form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 }

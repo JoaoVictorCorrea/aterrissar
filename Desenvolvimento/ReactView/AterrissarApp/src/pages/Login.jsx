@@ -24,7 +24,7 @@ function Login(){
       .then(result => {
         console.log("Resultado do Login => ", result);
         localStorage.setItem("user", JSON.stringify(result.data));
-        navigateTo('/');
+        navigateTo('/home');
       })
       .catch(error => {
         console.error("Erro ao fazer login: ", error);
