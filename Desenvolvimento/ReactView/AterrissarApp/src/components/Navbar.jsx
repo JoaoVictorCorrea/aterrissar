@@ -46,12 +46,6 @@ function Navbar({admin}) {
                 <li>
                   <a class="dropdown-item" href="profile">{user.nome}</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#">Configurações</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="login">Logout</a>
-                </li>
                 { user.admin == 1 ?
                   <li>
                     <a class="dropdown-item" href="painel">Painel do Administrador</a>
@@ -59,6 +53,12 @@ function Navbar({admin}) {
                   :
                   <a></a>
                 }
+                <li>
+                  <a class="dropdown-item" href="#">Configurações</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="login">Logout</a>
+                </li>
               </ul>
             </div>
           </div>

@@ -29,6 +29,7 @@ class AdminEmpresa extends Component{
 
     EmpresaService.createEmpresa(novoEmpresa).then(res => {
       
+      this.clear();
     });
   };
 
@@ -39,6 +40,11 @@ class AdminEmpresa extends Component{
   changeCnpjHandler = (event) => {
     this.setState({ cnpj: event.target.value });
   };
+
+  clear = (event) => {
+    this.setState({ nome: "" });
+    this.setState({ cnpj: "" });
+  }
 
   render() {
     return (
@@ -56,7 +62,7 @@ class AdminEmpresa extends Component{
                       <input type="text" class="form-control" id="cnpj" name="cnpj" maxlength="80" value={this.state.cnpj} onChange={this.changeCnpjHandler} required />
                     </div>                   
                     <button type="button" class="btn btn-primary m-1 w-100" onClick={this.addEmpresa}><i class="bi bi-airplane"></i> Cadastrar</button>
-                    <button type="button" class="btn btn-secondary m-1 w-100"><i class="bi bi-trash-fill"></i> Limpar</button>
+                    <button type="button" class="btn btn-secondary m-1 w-100" onClick={this.clear}><i class="bi bi-trash-fill"></i> Limpar</button>
             </form>
         </div>
       <Footer />
