@@ -7,9 +7,9 @@ import ReservaService from '../services/ReservaService';
 
 // Objeto Passagem
 class Passagem {
-  constructor(assento, qtdeBagagem, precoTotal, nomePassageiro, cpfPassageiro, tipoPassagem) {
+  constructor(assento, qtdBagagem, precoTotal, nomePassageiro, cpfPassageiro, tipoPassagem) {
     this.assento = assento;
-    this.qtdeBagagem = qtdeBagagem;
+    this.qtdBagagem = qtdBagagem;
     this.precoTotal = precoTotal;
     this.nomePassageiro = nomePassageiro;
     this.cpfPassageiro = cpfPassageiro;
@@ -39,8 +39,8 @@ function MyVerticallyCenteredModal(props) {
   const [nomePassageiro, setNomePassageiro] = useState('');
   const [cpfPassageiro, setCpfPassageiro] = useState('');
   const [tipoPassagem, setTipoPassagem] = useState('ECONOMICA');
-  const [qtdeBagagem, setQtdeBagagem] = useState(0);
-  const [precoTotal, setPrecoTotal] = useState(0);
+  const [qtdBagagem, setqtdBagagem] = useState(0);
+  const [precoTotal, setPrecoTotal] = useState(data.precoPassagem);
 
   const [total, setTotal] = useState(0);
   const [texto, setTexto] = useState("Não há passagens na lista");
@@ -54,7 +54,7 @@ function MyVerticallyCenteredModal(props) {
 
     const passagem = new Passagem(
       assento,
-      qtdeBagagem,
+      qtdBagagem,
       precoTotal,
       nomePassageiro,
       cpfPassageiro,
@@ -90,11 +90,11 @@ function MyVerticallyCenteredModal(props) {
   const atualizarValor = (e) => {
     setTipoPassagem(e.target.value);
     if(e.target.value == "ECONOMICA"){
-      setPrecoTotal(data.precoPassagem * (1 + (qtdeBagagem / 10)));
+      setPrecoTotal(data.precoPassagem * (1 + (qtdBagagem / 10)));
     }else if (e.target.value == "EXECUTIVA"){
-      setPrecoTotal((data.precoPassagem * (1 + (qtdeBagagem / 10))) * 1.5);
+      setPrecoTotal((data.precoPassagem * (1 + (qtdBagagem / 10))) * 1.5);
     }else if (e.target.value == "PRIMEIRA_CLASSE"){
-      setPrecoTotal((data.precoPassagem * (1 + (qtdeBagagem / 10))) * 2);
+      setPrecoTotal((data.precoPassagem * (1 + (qtdBagagem / 10))) * 2);
     }
   }
 
@@ -147,7 +147,7 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                   <div class="row m-2 pb-3">
                     <label for="numBag" class="form-label">Quantidade de Bagagens:</label>
-                    <input type="number" class="form-control" id="numBag" name="numBag"  min="0" max="3" value={qtdeBagagem} onChange={(e) => setQtdeBagagem(e.target.value)} required/>
+                    <input type="number" class="form-control" id="numBag" name="numBag"  min="0" max="3" value={qtdBagagem} onChange={(e) => setqtdBagagem(e.target.value)} required/>
                   </div>
                   <div class="row m-2 pb-3">
                     <label for="numBag" class="form-label">Assento:</label>
@@ -169,7 +169,7 @@ function MyVerticallyCenteredModal(props) {
                     <h6>{key.tipoPassagem}: {key.assento}</h6> 
                     <p>Nome do Passageiro: {key.nomePassageiro}</p>
                     <div class="d-flex flex-row-reverse">
-                      <h5 class="p-2">{key.qtdeBagagem} Bagagens</h5>
+                      <h5 class="p-2">{key.qtdBagagem} Bagagens</h5>
                     </div>
                     <div class="d-flex flex-row-reverse">
                       <h6 class="p-2">Valor Total da Passagem: R${key.precoTotal}</h6>
