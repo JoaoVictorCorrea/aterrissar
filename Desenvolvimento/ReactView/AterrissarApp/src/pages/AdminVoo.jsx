@@ -164,7 +164,7 @@ class AdminVoo extends Component{
 
   clear = (e) => {
     this.setState({ dataSaida:"" });
-    this.setState({ dataPartida:"" });
+    this.setState({ dataChegada:"" });
     this.setState({ qtdAssentosEconomica:"" });
     this.setState({ qtdAssentosPrimeiraClasse:"" });
     this.setState({ qtdAssentosExecutiva:"" });
